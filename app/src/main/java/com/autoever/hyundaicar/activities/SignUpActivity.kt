@@ -34,8 +34,8 @@ class SignUpActivity : AppCompatActivity() {
 
         // 컴포넌트 선언
         val editTextEmail = findViewById<TextInputEditText>(R.id.editTextEmail)
-        val editTextPassword = findViewById<TextInputEditText>(R.id.inputLayoutPassword)
-        val editTextNickname = findViewById<TextInputEditText>(R.id.inputLayoutNickname)
+        val editTextPassword = findViewById<TextInputEditText>(R.id.editTextPassword)
+        val editTextNickname = findViewById<TextInputEditText>(R.id.editTextNickname)
         val textViewComplete = findViewById<TextView>(R.id.btnConfirm)
 
         // 회원가입 버튼 동작
@@ -53,7 +53,7 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
 
-    // 회원가입 메서드
+    // 회원가입
     fun signUp(user: User, password: String) {
         val auth = FirebaseAuth.getInstance()
         auth.createUserWithEmailAndPassword(user.email, password)
@@ -85,7 +85,7 @@ class SignUpActivity : AppCompatActivity() {
             .addOnSuccessListener {
                 Log.d("SignUpActivity", "User data successfully written!")
 
-                // 메인 화면으로 이동
+                // 차량 선택 액티비티로 으로 이동
                 val intent = Intent(this, SelectCarActivity::class.java)
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
                 startActivity(intent)

@@ -50,28 +50,31 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/CardView"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="48dp"
+                android:layout_marginTop="60dp"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
                 app:cardBackgroundColor="@color/HyundaiNavy"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                app:rippleColor="@color/white">
 
                 <TextView
                     android:id="@+id/btnConfirm"
                     android:layout_width="380dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:clickable="true"
                     android:fontFamily="@font/happiness_sans_bold"
                     android:gravity="center"
                     android:text="로그인"
                     android:textColor="@color/white"
                     android:textSize="24sp" />
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
             <TextView
                 android:id="@+id/btnSignUp"

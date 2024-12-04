@@ -127,6 +127,7 @@
         android:orientation="horizontal">
 
         <LinearLayout
+            android:id="@+id/btnHome"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -147,6 +148,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/btnControl"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -167,6 +169,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/btnStatus"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -187,6 +190,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/btnMap"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
