@@ -14,33 +14,35 @@ import com.google.firebase.firestore.FirebaseFirestore
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-//        val editTextCarName = findViewById<TextView>(R.id.editTextCarName)
-//
-//        // "가입하기 버튼"
-//        val textViewComplete = findViewById<TextView>(R.id.textViewComplete)
-//        textViewComplete.setOnClickListener {
-//            val car = Car(
-//                "",editTextCarName.text.toString()
-//            )
-//            saveCarData(car)
-//        }
-//
-//    }
-//
-//    // Firestore에 사용자 데이터 저장
-//    private fun saveCarData(car: Car) {
-//        val firestore = FirebaseFirestore.getInstance()
-//
-//        // 사용자 UID를 Firestore 문서 ID로 사용하여 저장
-//        firestore.collection("cars")
-//            .add(car)
-//            .addOnSuccessListener {
-//                Toast.makeText(applicationContext, "차량 등록 완료",Toast.LENGTH_SHORT).show()
-//            }
-//            .addOnFailureListener { e ->
-//                Toast.makeText(applicationContext, "차량 등록 실패",Toast.LENGTH_SHORT).show()
-//            }
+
+        /*val editTextCarName = findViewById<TextView>(R.id.editTextCarName)
+
+        // "가입하기 버튼"
+        val textViewComplete = findViewById<TextView>(R.id.textViewComplete)
+        textViewComplete.setOnClickListener {
+            val car = Car(
+                "",editTextCarName.text.toString()
+            )
+            saveCarData(car)
+        }*/
+
     }
+
+    // Firestore에 사용자 데이터 저장
+    private fun saveCarData(car: Car) {
+        val firestore = FirebaseFirestore.getInstance()
+
+        // 사용자 UID를 Firestore 문서 ID로 사용하여 저장
+        firestore.collection("cars")
+            .add(car)
+            .addOnSuccessListener {
+                Toast.makeText(applicationContext, "차량 등록 완료",Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener { e ->
+                Toast.makeText(applicationContext, "차량 등록 실패",Toast.LENGTH_SHORT).show()
+            }
     }
+}
