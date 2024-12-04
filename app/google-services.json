@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "475432788531",
+    "project_id": "myhyundai1-85c94",
+    "storage_bucket": "myhyundai1-85c94.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:475432788531:android:61e42d44c0104ceed7b946",
+        "android_client_info": {
+          "package_name": "com.autoever.hyundaicar"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDA0pt18pdBuo7BMx1Xy2o_lEkW2ew_qX0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
