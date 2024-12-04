@@ -1,56 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity" >
+    tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:gravity="center"
-        android:text="회원가입"
-        android:textColor="@color/black"
-        android:textSize="20sp" />
-
+    <!-- 차량 정보 -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:orientation="vertical">
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="16dp">
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="match_parent"
+        <!-- 텍스트 정보 -->
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="차종" />
+            android:orientation="vertical"
+            android:layout_weight="1">
 
-        <EditText
-            android:id="@+id/editTextCarName"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="4dp"
-            android:background="@drawable/edittext_background"
-            android:ems="10"
-            android:hint="제네시스"
-            android:inputType="textEmailAddress"
-            android:paddingStart="16dp" />
+            <TextView
+                android:id="@+id/tvModel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="G70"
+                android:textSize="34sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvDistance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="401 km"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <!-- 오른쪽 이미지 -->
+        <ImageView
+            android:id="@+id/ivIcon1"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="Icon 1"
+            android:src="@drawable/user" />
+
+        <ImageView
+            android:id="@+id/ivIcon2"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:contentDescription="Icon 2"
+            android:src="@drawable/change" />
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/textViewComplete"
+
+    <!-- 차량 이미지 -->
+    <ImageView
+        android:id="@+id/ivCar"
+        android:layout_width="400dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:contentDescription="Car Image"
+        android:src="@drawable/car_image" />
+
+    <!-- 외부 온도 및 날짜 -->
+
+    <!-- 하단 네비게이션 바 -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@color/black"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:gravity="center"
-        android:text="가입하기"
-        android:textColor="@color/white"
-        android:textSize="16sp" />
+    android:padding="16dp">
+
+    <!-- 날씨 아이콘 -->
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/weather"
+        android:contentDescription="Weather Icon"
+        android:layout_marginEnd="8dp" />
+
+    <!-- 온도 텍스트 -->
+    <TextView
+        android:id="@+id/tvTemperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-4°C"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginEnd="8dp" />
+
+    <!-- 날짜 텍스트 -->
+    <TextView
+        android:id="@+id/tvDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2024년 12월 4일 수요일"
+        android:textSize="14sp" />
+</LinearLayout>
+
+
+<com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_gravity="bottom"
+        android:background="?android:attr/windowBackground" >
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
 </LinearLayout>
+
