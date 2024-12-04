@@ -17,18 +17,6 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-
-//        val editTextCarName = findViewById<TextView>(R.id.editTextCarName)
-//
-//        // "가입하기 버튼"
-//        val textViewComplete = findViewById<TextView>(R.id.textViewComplete)
-//        textViewComplete.setOnClickListener {
-//            val car = Car(
-//                "",editTextCarName.text.toString()
-//            )
-//            saveCarData(car)
-//        }
-
     }
 
     // Firestore에 사용자 데이터 저장
