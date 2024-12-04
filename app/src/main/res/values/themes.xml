@@ -2,7 +2,8 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.HyundaiCar" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/HyundaiNavy</item>
+        <item name="android:fontFamily">@font/Happiness_Sans_Regular</item>
     </style>
 
     <style name="Theme.HyundaiCar" parent="Base.Theme.HyundaiCar" />
