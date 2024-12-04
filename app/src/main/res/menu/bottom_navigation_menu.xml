@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_home"
+        android:title="Home" />
+    <item
+        android:id="@+id/nav_control"
+        android:icon="@drawable/ic_control"
+        android:title="Control" />
+    <item
+        android:id="@+id/nav_status"
+        android:icon="@drawable/ic_status"
+        android:title="Status" />
+    <item
+        android:id="@+id/nav_map"
+        android:icon="@drawable/ic_map"
+        android:title="Map" />
+</menu>
