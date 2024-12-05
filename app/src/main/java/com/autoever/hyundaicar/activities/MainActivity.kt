@@ -8,9 +8,6 @@ import android.os.Bundle
 import android.util.Base64
 import android.util.Log
 import android.widget.ImageView
-import android.content.Intent
-import android.os.Bundle
-import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
@@ -61,7 +58,7 @@ class MainActivity : AppCompatActivity() {
         } catch (e: Exception) {
             Log.e("KeyHash", "Unable to get KeyHash", e)
         }*/
-   
+
         // 뷰 참조
         val tvDate: TextView = findViewById(R.id.tvDate)
         val tvTemperature: TextView = findViewById(R.id.tvTemperature)
