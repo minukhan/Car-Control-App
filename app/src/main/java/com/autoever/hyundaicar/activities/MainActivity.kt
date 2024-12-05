@@ -1,7 +1,9 @@
 package com.autoever.hyundaicar.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -78,6 +80,40 @@ class MainActivity : AppCompatActivity() {
                 tvTemperature.text = temperatureData?.fcstValue?.let { "$it°C" } ?: "온도 없음"
                 tvDate.text = formattedDate
             }
+
+        /*val editTextCarName = findViewById<TextView>(R.id.editTextCarName)
+
+        // "가입하기 버튼"
+        val textViewComplete = findViewById<TextView>(R.id.textViewComplete)
+        textViewComplete.setOnClickListener {
+            val car = Car(
+                "",editTextCarName.text.toString()
+            )
+            saveCarData(car)
+        }*/
+
+        // View 초기화
+        val btnHome = findViewById<LinearLayout>(R.id.btnHome)
+        val btnControl = findViewById<LinearLayout>(R.id.btnControl)
+        val btnStatus = findViewById<LinearLayout>(R.id.btnStatus)
+        val btnMap = findViewById<LinearLayout>(R.id.btnMap)
+
+        // 버튼 동작
+        btnHome.setOnClickListener {
+            val intent = Intent(this@MainActivity, MainActivity::class.java)
+            startActivity(intent)
+        }
+        btnControl.setOnClickListener {
+            val intent = Intent(this@MainActivity, ControlActivity::class.java)
+            startActivity(intent)
+        }
+        btnStatus.setOnClickListener {
+            val intent = Intent(this@MainActivity, StatusActivity::class.java)
+            startActivity(intent)
+        }
+        btnMap.setOnClickListener {
+            val intent = Intent(this@MainActivity, MapActivity::class.java)
+            startActivity(intent)
         }
 
     }
