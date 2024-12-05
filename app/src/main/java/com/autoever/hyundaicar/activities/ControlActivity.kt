@@ -7,8 +7,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.autoever.hyundaicar.R
 import com.autoever.hyundaicar.models.Car
 import com.autoever.hyundaicar.models.Location
@@ -36,7 +34,7 @@ class ControlActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_control)
+        setContentView(R.layout.fragment_control)
 
         // 뷰 바인딩
         ivCarStatus = findViewById(R.id.ivCarStatus)

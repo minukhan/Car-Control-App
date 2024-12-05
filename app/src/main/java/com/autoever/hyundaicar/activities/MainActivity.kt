@@ -15,9 +15,12 @@ import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
 import com.autoever.hyundaicar.R
 import com.autoever.hyundaicar.models.Car
 import com.autoever.hyundaicar.viewmodel.WeatherViewModel
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.firestore.FirebaseFirestore
 import com.kakao.vectormap.KakaoMapSdk
 import java.security.MessageDigest
@@ -32,6 +35,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
+
+        // NavHostFragment
+        val navHostFragment = supportFragmentManager
+            .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController = navHostFragment.navController
+        val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottom_navigation)
+        bottomNavigationView.setupWithNavController(navController)
 
         /*try {
             val info = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
@@ -59,6 +69,7 @@ class MainActivity : AppCompatActivity() {
             Log.e("KeyHash", "Unable to get KeyHash", e)
         }*/
 
+        /*
         // 뷰 참조
         val tvDate: TextView = findViewById(R.id.tvDate)
         val tvTemperature: TextView = findViewById(R.id.tvTemperature)
@@ -139,6 +150,7 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         }
+        */
     }
 
 

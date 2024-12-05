@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <!-- 차량 정보 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <!-- 텍스트 정보 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvModel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="G70"
+                android:textSize="34sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvDistance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="401 km"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <!-- 오른쪽 이미지 -->
+        <ImageView
+            android:id="@+id/ivIcon1"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="Icon 1"
+            android:src="@drawable/ic_map" />
+
+        <ImageView
+            android:id="@+id/ivIcon2"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:contentDescription="Icon 2"
+            android:src="@drawable/change" />
+    </LinearLayout>
+
+    <!-- 차량 이미지 -->
+    <ImageView
+        android:id="@+id/ivCar"
+        android:layout_width="400dp"
+        android:layout_height="250dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:contentDescription="Car Image"
+        android:src="@drawable/car_image" />
+
+    <!-- 외부 온도 및 날짜 -->
+
+    <!-- 하단 네비게이션 바 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <!-- 날씨 아이콘 -->
+        <ImageView
+            android:id="@+id/SkyView"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:contentDescription="Weather Icon"
+            android:src="@drawable/weather" />
+
+        <!-- 온도 텍스트 -->
+        <TextView
+            android:id="@+id/tvTemperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="-4°C"
+            android:textSize="42sp"
+            android:textStyle="bold" />
+
+        <!-- 날짜 텍스트 -->
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:text="2024년 12월 4일 수요일"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        app:srcCompat="@drawable/ic_power" />
+</LinearLayout>
