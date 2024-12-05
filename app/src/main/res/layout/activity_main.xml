@@ -1,218 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
     android:orientation="vertical"
-    tools:context=".activities.MainActivity">
+    tools:context=".activities.MainActivity" >
 
-    <!-- 차량 정보 -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_height="?attr/actionBarSize"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:padding="16dp">
 
-        <!-- 텍스트 정보 -->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/tvModel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="G70"
-                android:textSize="34sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvDistance"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="401 km"
-                android:textSize="18sp" />
-        </LinearLayout>
-
-        <!-- 오른쪽 이미지 -->
-        <ImageView
-            android:id="@+id/ivIcon1"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginEnd="8dp"
-            android:contentDescription="Icon 1"
-            android:src="@drawable/ic_map" />
-
-        <ImageView
-            android:id="@+id/ivIcon2"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:contentDescription="Icon 2"
-            android:src="@drawable/change" />
-    </LinearLayout>
-
-    <!-- 차량 이미지 -->
-    <ImageView
-        android:id="@+id/ivCar"
-        android:layout_width="400dp"
-        android:layout_height="250dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="16dp"
-        android:contentDescription="Car Image"
-        android:src="@drawable/car_image" />
-
-    <!-- 외부 온도 및 날짜 -->
-
-    <!-- 하단 네비게이션 바 -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:padding="16dp">
-
-        <!-- 날씨 아이콘 -->
-        <ImageView
-            android:id="@+id/SkyView"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:contentDescription="Weather Icon"
-            android:src="@drawable/weather" />
-
-        <!-- 온도 텍스트 -->
         <TextView
-            android:id="@+id/tvTemperature"
+            android:id="@+id/textViewTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginEnd="8dp"
-            android:text="-4°C"
-            android:textSize="42sp"
+            android:text="SONATA"
+            android:textColor="@color/black"
+            android:textSize="28sp"
             android:textStyle="bold" />
 
-        <!-- 날짜 텍스트 -->
-        <TextView
-            android:id="@+id/tvDate"
+        <Space
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:text="2024년 12월 4일 수요일"
-            android:textSize="16sp" />
+            android:layout_height="0dp"
+            android:layout_weight="1" />
 
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        app:srcCompat="@drawable/ic_power" />
+    <fragment
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        app:navGraph="@navigation/nav_graph" />
 
-
-    <!-- 하단 네비게이션 아이콘 -->
-    <LinearLayout
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:orientation="horizontal">
-
-        <LinearLayout
-            android:id="@+id/btnHome"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:padding="8dp">
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_home" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Home"
-                android:textSize="12sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/btnControl"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:padding="8dp">
-
-            <ImageView
-                android:id="@+id/controlImageView"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_control" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Control"
-                android:textSize="12sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/btnStatus"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:padding="8dp">
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_status" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Status"
-                android:textSize="12sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/btnMap"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:padding="8dp">
-
-            <ImageView
-                android:id="@+id/mapImageView"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/img" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Map"
-                android:textSize="12sp" />
-        </LinearLayout>
-
-    </LinearLayout>
-
+        app:menu="@menu/bottom_navigation_menu" />
 </LinearLayout>
-
