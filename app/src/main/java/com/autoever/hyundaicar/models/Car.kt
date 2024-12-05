@@ -8,7 +8,8 @@ data class Car(
     var isLocked: Boolean = true,
     var temperature: Double = 0.0,
     var distanceToEmpty: Int = 0,
-    var location: Location = Location()
+    var location: Location = Location(),
+    var emergencyLight: Boolean = false
 )
 
 data class Location(

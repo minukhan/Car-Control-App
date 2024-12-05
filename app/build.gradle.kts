@@ -1,7 +1,14 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     id("com.google.gms.google-services")
+}
+
+val properties = Properties().apply {
+    load(FileInputStream(rootProject.file("local.properties")))
 }
 
 android {
@@ -9,6 +16,14 @@ android {
     compileSdk = 35
 
     defaultConfig {
+
+        ndk {
+            abiFilters.add("arm64-v8a")
+            abiFilters.add("armeabi-v7a")
+            abiFilters.add("x86")
+            abiFilters.add("x86_64")
+        }
+
         applicationId = "com.autoever.hyundaicar"
         minSdk = 26
         targetSdk = 35
@@ -16,7 +31,10 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String", "KAKAO_MAP_KEY", properties.getProperty("KAKAO_MAP_KEY"))
     }
+
+
 
     buildTypes {
         release {
@@ -34,7 +52,12 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+    buildFeatures {
+        buildConfig = true
+        viewBinding  = true
+    }
 }
+
 
 dependencies {
     implementation("androidx.core:core-ktx:1.13.1")
@@ -68,4 +91,7 @@ dependencies {
     // 글라이드
     implementation("com.github.bumptech.glide:glide:4.15.1")
     annotationProcessor("com.github.bumptech.glide:compiler:4.15.1")
+
+    // 카카오맵 api
+    implementation ("com.kakao.maps.open:android:2.12.8")
 }

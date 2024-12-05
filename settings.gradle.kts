@@ -7,18 +7,19 @@ pluginManagement {
                 includeGroupByRegex("androidx.*")
             }
         }
-        mavenCentral()
+        mavenCentral() // 카카오 SDK를 위한 Maven Central
         gradlePluginPortal()
     }
 }
+
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
-        mavenCentral()
+        mavenCentral() // 카카오 SDK를 위한 Maven Central
+        maven(url = uri("https://devrepo.kakao.com/nexus/repository/kakaomap-releases/"))
     }
 }
 
 rootProject.name = "HyundaiCar"
 include(":app")
- 
