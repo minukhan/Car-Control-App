@@ -16,7 +16,7 @@ class SplashActivity : AppCompatActivity() {
 
         // 2초 뒤에 로그인 페이지 이동
         Handler(Looper.getMainLooper()).postDelayed({
-            startActivity((Intent(this,LoginActivity::class.java)))
+            startActivity((Intent(this,WeatherActivity::class.java)))
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
             finish()
         },2000)

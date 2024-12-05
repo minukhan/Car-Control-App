@@ -1,8 +1,10 @@
 package com.autoever.hyundaicar.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.autoever.hyundaicar.api.WeatherApi.Weather
+import com.autoever.hyundaicar.api.WeatherApi.WeatherResponse
 import com.autoever.hyundaicar.api.WeatherApi.WeatherApiService
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -18,7 +20,8 @@ class WeatherViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 val response = weatherApiService.getWeatherData()
-                //_weatherData.value = response.response.body.items.item
+                Log.d("WeatherViewModel", "jongsik Response: $response")
+                _weatherData.value = response.response.body.items.item
             } catch (e: Exception) {
                 e.printStackTrace() // 에러 처리
             }

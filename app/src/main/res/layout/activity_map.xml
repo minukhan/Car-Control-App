@@ -47,6 +47,7 @@
                 android:fontFamily="@font/custom_font"
                 android:padding="16dp"
                 android:text="Around"
+                android:textColor="@color/black"
                 android:textSize="30sp"
                 android:textStyle="bold" />
 
@@ -77,6 +78,7 @@
                 android:layout_marginBottom="32dp"
                 android:fontFamily="@font/custom_font"
                 android:text="주변 검색"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -89,6 +91,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -100,6 +103,7 @@
                     android:layout_marginBottom="32dp"
                     android:fontFamily="@font/custom_font"
                     android:text="더보기"
+                    android:textColor="@color/black"
                     android:textSize="14sp"
                     android:textStyle="bold" />
 
@@ -143,7 +147,9 @@
                     android:id="@+id/textView6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="주유소" />
+                    android:text="주유소"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
@@ -164,7 +170,9 @@
                     android:id="@+id/textView7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="주차장" />
+                    android:text="주차장"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
@@ -186,7 +194,9 @@
                     android:id="@+id/textView8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="세차장" />
+                    android:text="세차장"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
@@ -208,7 +218,9 @@
                     android:id="@+id/textView8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="카페" />
+                    android:text="카페"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
@@ -237,6 +249,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Home"
+                    android:textColor="@color/black"
                     android:textSize="12sp" />
             </LinearLayout>
 
@@ -257,6 +270,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Control"
+                    android:textColor="@color/black"
                     android:textSize="12sp" />
             </LinearLayout>
 
@@ -277,6 +291,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Status"
+                    android:textColor="@color/black"
                     android:textSize="12sp" />
             </LinearLayout>
 
@@ -297,6 +312,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Map"
+                    android:textColor="@color/black"
                     android:textSize="12sp" />
             </LinearLayout>
 
