@@ -55,16 +55,32 @@ android {
     buildFeatures {
         buildConfig = true
         viewBinding  = true
+        viewBinding = true
     }
 }
 
 
 dependencies {
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.material)
+    implementation(libs.androidx.activity)
+    implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.annotation)
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.firebase.firestore.ktx)
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
+
     implementation("androidx.core:core-ktx:1.13.1")
     implementation("androidx.appcompat:appcompat:1.7.0")
     implementation("com.google.android.material:material:1.12.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("com.google.firebase:firebase-firestore:25.1.1")
+    implementation(libs.androidx.activity)
+    implementation(libs.play.services.maps)
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.2.1")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
@@ -94,4 +110,7 @@ dependencies {
 
     // 카카오맵 api
     implementation ("com.kakao.maps.open:android:2.12.8")
+    
+    implementation("com.squareup.okhttp3:okhttp:4.11.0") // OkHttp 최신 버전
+    implementation("com.squareup.okhttp3:logging-interceptor:4.11.0") // HttpLoggingInterceptor
 }

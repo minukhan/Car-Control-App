@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activities.SelectCarActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/happiness_sans_bold"
+        android:padding="16dp"
+        android:text="차량을 선택하세요"
+        android:textColor="@color/HyundaiNavy"
+        android:textSize="20sp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_marginTop="16dp"
+        android:gravity="bottom|center"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            app:cardBackgroundColor="@color/HyundaiNavy"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
+
+            <TextView
+                android:id="@+id/btnConfirm"
+                android:layout_width="380dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:clickable="true"
+                android:fontFamily="@font/happiness_sans_bold"
+                android:gravity="center"
+                android:text="선택"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+</LinearLayout>

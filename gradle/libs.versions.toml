@@ -20,6 +20,11 @@ navigationUiKtx = "2.8.4"
 okhttp = "4.9.0"
 retrofit = "2.9.0"
 viewpager2 = "1.1.0"
+playServicesMaps = "19.0.0"
+annotation = "1.9.1"
+lifecycleLivedataKtx = "2.8.7"
+lifecycleViewmodelKtx = "2.8.7"
+
 
 [libraries]
 androidx-constraintlayout-v214 = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayoutVersion" }
@@ -44,6 +49,10 @@ androidx-constraintlayout = { group = "androidx.constraintlayout", name = "const
 firebase-firestore-ktx = { group = "com.google.firebase", name = "firebase-firestore-ktx", version.ref = "firebaseFirestoreKtx" }
 okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+play-services-maps = { group = "com.google.android.gms", name = "play-services-maps", version.ref = "playServicesMaps" }
+androidx-annotation = { group = "androidx.annotation", name = "annotation", version.ref = "annotation" }
+androidx-lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycleLivedataKtx" }
+androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtx" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

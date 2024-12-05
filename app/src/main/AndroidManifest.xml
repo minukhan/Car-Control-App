@@ -5,12 +5,21 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.GET_SIGNATURES" />
     <uses-permission android:name="android.permission.GET_PACKAGE_SIZE" />
-    <!-- 인터넷 권한 -->
-    <uses-permission android:name="android.permission.INTERNET" />
 
     <!-- 위치 권한 (필요 시) -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
 
     <application
         android:allowBackup="true"
@@ -18,17 +27,32 @@
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.HyundaiCar"
+        android:usesCleartextTraffic="true"
 
         tools:targetApi="31">
         <meta-data
             android:name="com.kakao.vectormap.KAKAO_MAP_KEY"
             android:value="KAKAO_MAP_KEY"/>
         <activity
+            android:name=".activities.WeatherActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".activities.SplashActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".activities.SelectCarActivity"
+            android:exported="false">
+        </activity>
+        <activity
             android:name=".activities.MapActivity"
-            android:exported="false" />
+            android:exported="false">
+
+        </activity>
         <activity
             android:name=".activities.StatusActivity"
             android:exported="false" />
@@ -36,14 +60,22 @@
             android:name=".activities.ControlActivity"
             android:exported="false" />
         <activity
+            android:name=".activities.SignUpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.LoginActivity"
+            android:exported="false">
+        </activity>
+        <activity
             android:name=".activities.MainActivity"
+
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>
