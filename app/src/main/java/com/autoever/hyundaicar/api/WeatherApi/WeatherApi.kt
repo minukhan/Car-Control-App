@@ -14,5 +14,5 @@ interface WeatherApi {
         @Query("nx") nx: Int,
         @Query("ny") ny: Int,
         @Query("dataType") dataType: String
-    ): Weather // 응답 데이터를 매핑할 DTO 클래스
+    ): WeatherResponse
 }

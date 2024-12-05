@@ -18,6 +18,7 @@ class SplashActivity : AppCompatActivity() {
 
         // 2초 뒤에 로그인 페이지 이동
         Handler(Looper.getMainLooper()).postDelayed({
+            startActivity((Intent(this,WeatherActivity::class.java)))
             val auth = FirebaseAuth.getInstance()
             val currentUser = auth.currentUser
             var intent: Intent? = null
