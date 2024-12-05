@@ -110,16 +110,13 @@
 
     </LinearLayout>
 
-    <ImageButton
-        android:id="@+id/power_button"
+    <ImageView
+        android:id="@+id/imageView2"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:layout_centerInParent="true"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:background="@drawable/ic_power"
-        android:contentDescription="Power Button"
-        android:src="@drawable/ic_power" />
+        app:srcCompat="@drawable/ic_power" />
 
 
     <!-- 하단 네비게이션 아이콘 -->
@@ -160,6 +157,7 @@
             android:padding="8dp">
 
             <ImageView
+                android:id="@+id/controlImageView"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:src="@drawable/ic_control" />
@@ -202,9 +200,10 @@
             android:padding="8dp">
 
             <ImageView
+                android:id="@+id/mapImageView"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/ic_map" />
+                android:src="@drawable/img" />
 
             <TextView
                 android:layout_width="wrap_content"

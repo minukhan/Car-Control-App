@@ -1,6 +1,14 @@
 package com.autoever.hyundaicar.activities
 
 import android.content.Intent
+import android.content.pm.PackageInfo
+import android.content.pm.PackageManager
+import android.os.Build
+import android.os.Bundle
+import android.util.Base64
+import android.util.Log
+import android.widget.ImageView
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -14,6 +22,8 @@ import com.autoever.hyundaicar.R
 import com.autoever.hyundaicar.models.Car
 import com.autoever.hyundaicar.viewmodel.WeatherViewModel
 import com.google.firebase.firestore.FirebaseFirestore
+import com.kakao.vectormap.KakaoMapSdk
+import java.security.MessageDigest
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Locale
@@ -26,6 +36,32 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
+        /*try {
+            val info = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                packageManager.getPackageInfo(packageName, PackageManager.GET_SIGNING_CERTIFICATES)
+            } else {
+                packageManager.getPackageInfo(packageName, PackageManager.GET_SIGNATURES)
+            }
+
+            val signatures = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                info.signingInfo?.apkContentsSigners
+            } else {
+                info.signatures
+            }
+
+            if (signatures != null) {
+                for (signature in signatures) {
+                    val md = MessageDigest.getInstance("SHA")
+                    md.update(signature.toByteArray())
+                    val keyHash = String(Base64.encode(md.digest(), Base64.DEFAULT))
+                    Log.d("KeyHash", keyHash)
+                    Toast.makeText(this, "KeyHash: $keyHash", Toast.LENGTH_LONG).show()
+                }
+            }
+        } catch (e: Exception) {
+            Log.e("KeyHash", "Unable to get KeyHash", e)
+        }*/
+   
         // 뷰 참조
         val tvDate: TextView = findViewById(R.id.tvDate)
         val tvTemperature: TextView = findViewById(R.id.tvTemperature)
@@ -107,6 +143,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
 
     // Firestore에 사용자 데이터 저장
     private fun saveCarData(car: Car) {
