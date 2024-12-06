@@ -8,13 +8,6 @@
 
     <!-- 차량 이미지 -->
 
-    <ImageView
-        android:id="@+id/ivCarStatus"
-        android:layout_width="400dp"
-        android:layout_height="250dp"
-        android:contentDescription="Car Image"
-        android:src="@drawable/car_image" />
-
     <!-- 희망 실내 온도 -->
     <LinearLayout
         android:layout_width="wrap_content"

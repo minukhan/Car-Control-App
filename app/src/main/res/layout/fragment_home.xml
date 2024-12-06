@@ -11,13 +11,6 @@
     <!-- 차량 정보 -->
 
     <!-- 차량 이미지 -->
-    <ImageView
-        android:id="@+id/ivCar"
-        android:layout_width="400dp"
-        android:layout_height="250dp"
-        android:layout_gravity="center"
-        android:contentDescription="Car Image"
-        android:src="@drawable/car_image" />
 
     <!-- 외부 온도 및 날짜 -->
 
@@ -105,8 +98,8 @@
 
             <ImageButton
                 android:id="@+id/btnStart"
-                android:layout_width="90dp"
-                android:layout_height="90dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_gravity="center"
                 android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:scaleType="centerCrop"

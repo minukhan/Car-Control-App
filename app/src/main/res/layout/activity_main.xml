@@ -72,6 +72,14 @@
 
     </LinearLayout>
 
+    <ImageView
+        android:id="@+id/ivCar"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_gravity="center"
+        android:contentDescription="Car Image"
+        android:src="@drawable/car_image" />
+
     <fragment
         android:id="@+id/nav_host_fragment"
         android:name="androidx.navigation.fragment.NavHostFragment"

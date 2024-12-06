@@ -45,6 +45,7 @@ class MainActivity : AppCompatActivity() {
         // View 초기화
         val tvModel = findViewById<TextView>(R.id.tvModel)
         val tvDistance = findViewById<TextView>(R.id.tvDistance)
+        val ivCar = findViewById<ImageView>(R.id.ivCar)
         val imageViewChangeCar = findViewById<ImageView>(R.id.ivIcon1)
         val imageViewMyPage = findViewById<ImageView>(R.id.ivIcon2)
         val imageButtonLogout = findViewById<ImageView>(R.id.imageButtonLogout)
@@ -73,6 +74,12 @@ class MainActivity : AppCompatActivity() {
                     // 차량 모델명과 남은 거리 표시
                     tvModel.text = car.name
                     tvDistance.text = "${car.distanceToEmpty}km"
+                    // 이미지 로드 부분 추가
+                    Glide.with(ivCar.context)
+                        .load(car.image)
+                        .placeholder(R.drawable.img)
+                        .error(R.drawable.img)
+                        .into(ivCar)
                 } else {
                     // 차량 정보가 없을 경우 처리
                     println("No car information found.")

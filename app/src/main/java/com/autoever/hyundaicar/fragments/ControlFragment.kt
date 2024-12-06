@@ -43,7 +43,6 @@ class ControlFragment : Fragment() {
     }
 
     private fun initializeViews(view: View) {
-        ivCarStatus = view.findViewById(R.id.ivCarStatus)
         btnLock = view.findViewById(R.id.btnLock)
         btnUnlock = view.findViewById(R.id.btnUnlock)
         btnStart = view.findViewById(R.id.btnStart)
