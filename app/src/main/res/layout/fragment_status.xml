@@ -8,55 +8,6 @@
 
     <!-- 차량 이미지 -->
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:padding="16dp">
-
-        <!-- 텍스트 정보 -->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/tvModel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="G70"
-                android:textSize="34sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvDistance"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="401 km"
-                android:textSize="18sp" />
-        </LinearLayout>
-
-        <!-- 오른쪽 이미지 -->
-        <ImageView
-            android:id="@+id/ivIcon2"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_margin="16dp"
-            android:contentDescription="Icon 2"
-            android:src="@drawable/change" />
-
-        <ImageView
-            android:id="@+id/ivIcon1"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:contentDescription="Icon 1"
-            android:src="@drawable/ic_map" />
-
-    </LinearLayout>
-
     <ImageView
         android:id="@+id/ivCarStatus"
         android:layout_width="400dp"

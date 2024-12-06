@@ -9,55 +9,6 @@
     android:padding="16dp">
 
     <!-- 차량 정보 -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:padding="16dp">
-
-        <!-- 텍스트 정보 -->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/tvModel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="G70"
-                android:textSize="34sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvDistance"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="401 km"
-                android:textSize="18sp" />
-        </LinearLayout>
-
-        <!-- 오른쪽 이미지 -->
-        <ImageView
-            android:id="@+id/ivIcon2"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_margin="16dp"
-            android:contentDescription="Icon 2"
-            android:src="@drawable/change" />
-
-        <ImageView
-            android:id="@+id/ivIcon1"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:contentDescription="Icon 1"
-            android:src="@drawable/ic_map" />
-
-    </LinearLayout>
 
     <!-- 차량 이미지 -->
     <ImageView
@@ -117,7 +68,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:orientation="horizontal"
-        android:padding="8dp">
+        android:padding="16dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -129,8 +80,8 @@
 
             <ImageButton
                 android:id="@+id/btnLock"
-                android:layout_width="54dp"
-                android:layout_height="64dp"
+                android:layout_width="44dp"
+                android:layout_height="54dp"
                 android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:contentDescription="Lock Door"
                 android:scaleType="fitXY"
@@ -153,11 +104,11 @@
             android:orientation="vertical">
 
             <ImageButton
-                android:id="@+id/imageViewStart"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:id="@+id/btnStart"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
                 android:layout_gravity="center"
-                android:background="#00FFFFFF"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_power" />
 
@@ -179,8 +130,8 @@
 
             <ImageButton
                 android:id="@+id/btnUnlock"
-                android:layout_width="60dp"
-                android:layout_height="64dp"
+                android:layout_width="50dp"
+                android:layout_height="54dp"
                 android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:contentDescription="Lock Door"
                 android:scaleType="centerCrop"

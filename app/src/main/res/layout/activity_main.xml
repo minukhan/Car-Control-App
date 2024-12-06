@@ -13,28 +13,62 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginRight="16dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:padding="16dp">
 
-        <TextView
-            android:id="@+id/textViewTitle"
-            android:layout_width="wrap_content"
+        <!-- 텍스트 정보 -->
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:backgroundTint="@color/white"
-            android:fontFamily="@font/custom_font"
-            android:text="MyHynudai"
-            android:textColor="@color/black"
-            android:textSize="28sp"
-            android:textStyle="bold" />
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
+            <TextView
+                android:id="@+id/tvModel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="G70"
+                android:textSize="34sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvDistance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="401 km"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <!-- 오른쪽 이미지 -->
+        <ImageView
+            android:id="@+id/ivIcon2"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="16dp"
+            android:contentDescription="Icon 2"
+            android:src="@drawable/change" />
+
+        <ImageView
+            android:id="@+id/ivIcon1"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="16dp"
+            android:contentDescription="Icon 1"
+            android:src="@drawable/ic_map" />
+
+        <ImageButton
+            android:id="@+id/imageButtonLogout"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="#00FFFFFF"
+            android:padding="2dp"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/ic_logout" />
 
     </LinearLayout>
 

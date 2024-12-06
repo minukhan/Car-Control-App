@@ -17,7 +17,7 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-        // 2초 뒤에 로그인 페이지 이동
+        // 2초 뒤에 페이지 이동
         Handler(Looper.getMainLooper()).postDelayed({
             val auth = FirebaseAuth.getInstance()
             val currentUser = auth.currentUser
