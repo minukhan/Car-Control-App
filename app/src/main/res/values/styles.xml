@@ -6,4 +6,15 @@
         <item name="colorOnPrimary">@color/white</item>
         <item name="android:textColorHint">#78909C</item>
     </style>
+    <style name="BottomNavigationTheme" parent="Widget.MaterialComponents.BottomNavigationView">
+        <!-- 배경색 변경 -->
+        <item name="android:background">@color/nav_background</item>
+
+        <!-- 선택된 아이템 색상 -->
+        <item name="itemIconTint">@color/nav_item_color_state</item>
+        <item name="itemTextColor">@color/nav_item_color_state</item>
+
+        <!-- 리플 효과 색상 -->
+        <item name="itemRippleColor">@color/nav_ripple_color</item>
+    </style>
 </resources>

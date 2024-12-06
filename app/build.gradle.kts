@@ -109,7 +109,6 @@ dependencies {
 
     // 네이버 맵 api
     implementation("com.naver.maps:map-sdk:3.19.1")
-    
     implementation("com.squareup.okhttp3:okhttp:4.11.0") // OkHttp 최신 버전
     implementation("com.squareup.okhttp3:logging-interceptor:4.11.0") // HttpLoggingInterceptor
 }
