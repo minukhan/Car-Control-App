@@ -48,10 +48,6 @@
             android:exported="false">
         </activity>
         <activity
-            android:name=".activities.MapActivity"
-            android:exported="false">
-        </activity>
-        <activity
             android:name=".activities.SignUpActivity"
             android:exported="false" />
         <activity
