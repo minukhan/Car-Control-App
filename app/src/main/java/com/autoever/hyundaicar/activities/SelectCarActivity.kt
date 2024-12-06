@@ -197,10 +197,6 @@ class SelectCarActivity : AppCompatActivity() {
             // Firestore 업데이트
             userRef.update("cars", updatedCars)
                 .addOnSuccessListener {
-                    Toast.makeText(this,
-                        "${car.name}이(가) 추가되었습니다.",
-                        Toast.LENGTH_SHORT).show()
-
                     // MainActivity로 이동
                     Intent(this, MainActivity::class.java).apply {
                         flags = Intent.FLAG_ACTIVITY_CLEAR_TOP

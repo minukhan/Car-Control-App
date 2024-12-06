@@ -22,11 +22,6 @@ class StatusFragment: Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_status, container, false)
 
-        // 뷰 참조
-        val tvModel = view.findViewById<TextView>(R.id.tvModel)
-        val tvDistance = view.findViewById<TextView>(R.id.tvDistance)
-
-
         fetchUserInfo()
         return view
     }
