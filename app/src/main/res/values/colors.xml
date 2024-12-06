@@ -4,4 +4,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="HyundaiNavy">#022754</color>
     <color name="HyundaiBlue">#00A1F2</color>
+    <color name="nav_background">#FFFFFF</color>
+    <color name="selected_item_color">#00A1F2</color>
+    <color name="unselected_item_color">#757575</color>
+    <color name="nav_ripple_color">#3300A1F2</color>
 </resources>

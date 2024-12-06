@@ -14,10 +14,8 @@ import com.autoever.hyundaicar.R
 import com.autoever.hyundaicar.models.Car
 import com.autoever.hyundaicar.models.User
 import com.autoever.hyundaicar.viewmodel.WeatherViewModel
-import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.firestore
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Locale

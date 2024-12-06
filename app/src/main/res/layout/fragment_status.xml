@@ -26,7 +26,7 @@
                 android:id="@+id/tvModel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Status"
+                android:text="G70"
                 android:textSize="34sp"
                 android:textStyle="bold" />
 
@@ -35,25 +35,26 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="G70"
+                android:text="401 km"
                 android:textSize="18sp" />
         </LinearLayout>
 
         <!-- 오른쪽 이미지 -->
         <ImageView
+            android:id="@+id/ivIcon2"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="16dp"
+            android:contentDescription="Icon 2"
+            android:src="@drawable/change" />
+
+        <ImageView
             android:id="@+id/ivIcon1"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginEnd="8dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:contentDescription="Icon 1"
             android:src="@drawable/ic_map" />
 
-        <ImageView
-            android:id="@+id/ivIcon2"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:contentDescription="Icon 2"
-            android:src="@drawable/change" />
     </LinearLayout>
 
     <ImageView
