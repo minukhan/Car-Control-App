@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
@@ -16,8 +17,10 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.autoever.hyundaicar.R
 import com.autoever.hyundaicar.models.Car
+import com.autoever.hyundaicar.models.Location
 import com.autoever.hyundaicar.models.User
 import com.autoever.hyundaicar.viewmodel.WeatherViewModel
+import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.launch
@@ -28,6 +31,120 @@ class HomeFragment : Fragment() {
     private val weatherViewModel: WeatherViewModel by viewModels()
     private var currentCar: Car? = null
     private var mediaPlayer: MediaPlayer? = null
+
+    private val cars: MutableList<Car> = mutableListOf(
+        Car(
+            id = "1",
+            name = "아반떼 N",
+            image = "https://www.hyundai.com/contents/repn-car/side-45/main-avante-n-25my-45side.png",
+            isStarted = false,
+            isLocked = true,
+            temperature = 20.1,
+            distanceToEmpty = 247,
+            location = Location(37.5665, 126.978),
+            emergencyLight = false
+        ),
+        Car(
+            id = "2",
+            name = "팰리세이드",
+            image = "https://www.hyundai.com/contents/repn-car/side-45/main-palisade-24my-45side.png",
+            isStarted = false,
+            isLocked = true,
+            temperature = 20.1,
+            distanceToEmpty = 89,
+            location = Location(37.5665, 126.978),
+            emergencyLight = false
+        ),
+        Car(
+            id = "3",
+            name = "캐스퍼",
+            image = "https://casper.hyundai.com/wcontents/repn-car/side-45/AX03/AXJJ4VPT3/A04/TKS/m.png",
+            isStarted = false,
+            isLocked = true,
+            temperature = 20.1,
+            distanceToEmpty = 173,
+            location = Location(37.5665, 126.978),
+            emergencyLight = false
+        ),
+        Car(
+            id = "4",
+            name = "그랜져",
+            image = "https://www.hyundai.com/contents/repn-car/side-45/main-grandeur-taxi-25my-45side.png",
+            isStarted = false,
+            isLocked = true,
+            temperature = 20.1,
+            distanceToEmpty = 384,
+            location = Location(37.5665, 126.978),
+            emergencyLight = false
+        ),
+        Car(
+            id = "5",
+            name = "아반떼 하이브리드",
+            image = "https://www.hyundai.com/contents/repn-car/side-45/main-avante-hybrid-25my-45side.png",
+            isStarted = false,
+            isLocked = true,
+            temperature = 20.1,
+            distanceToEmpty = 76,
+            location = Location(37.5665, 126.978),
+            emergencyLight = false
+        ),
+        Car(
+            id = "6",
+            name = "쏘나타",
+            image = "https://www.hyundai.com/contents/repn-car/side-45/main-sonata-the-edge-hybrid-25my-45side.png",
+            isStarted = false,
+            isLocked = true,
+            temperature = 20.1,
+            distanceToEmpty = 512,
+            location = Location(37.5665, 126.978),
+            emergencyLight = false
+        ),
+        Car(
+            id = "7",
+            name = "코나",
+            image = "https://www.hyundai.com/contents/repn-car/side-45/main-kona-24my-45side.png",
+            isStarted = false,
+            isLocked = true,
+            temperature = 20.1,
+            distanceToEmpty = 429,
+            location = Location(37.5665, 126.978),
+            emergencyLight = false
+        ),
+        Car(
+            id = "8",
+            name = "싼타페",
+            image = "https://www.hyundai.com/contents/repn-car/side-45/main-santafe-hybrid-25my-45side.png",
+            isStarted = false,
+            isLocked = true,
+            temperature = 20.1,
+            distanceToEmpty = 324,
+            location = Location(37.5665, 126.978),
+            emergencyLight = false
+        ),
+        Car(
+            id = "9",
+            name = "스타리아",
+            image = "https://www.hyundai.com/contents/repn-car/side-45/main-staria-lounge-limousine-24my-45side.png",
+            isStarted = false,
+            isLocked = true,
+            temperature = 20.1,
+            distanceToEmpty = 147,
+            location = Location(37.5665, 126.978),
+            emergencyLight = false
+        ),
+        Car(
+            id = "10",
+            name = "아이오닉 5",
+            image = "https://www.hyundai.com/contents/repn-car/side-45/the-new-ioniq5-24pe-45side.png",
+            isStarted = false,
+            isLocked = true,
+            temperature = 20.1,
+            distanceToEmpty = 231,
+            location = Location(37.5665, 126.978),
+            emergencyLight = false
+        ),
+
+        )
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -119,6 +236,31 @@ class HomeFragment : Fragment() {
                 tvDate.text = formattedDate
             }
         }
+
+        val bannerContainer = view.findViewById<LinearLayout>(R.id.bannerContainer)
+
+        // Fragment에서 자동차 데이터를 배너에 동적으로 추가
+        cars.forEach { car ->
+            val imageView = ImageView(requireContext()).apply {
+                layoutParams = LinearLayout.LayoutParams(300, 200).apply {
+                    setMargins(16, 8, 16, 8)
+                }
+                scaleType = ImageView.ScaleType.CENTER_CROP
+            }
+
+            // 이미지 로드
+            Glide.with(this).load(car.image).into(imageView)
+
+            // 클릭 이벤트 처리
+            imageView.setOnClickListener {
+                // 클릭 시 이벤트 처리 (예: 자동차 상세 정보 보기)
+                // 예: findNavController().navigate(R.id.action_to_carDetailFragment)
+            }
+
+            // 배너 컨테이너에 뷰 추가
+            bannerContainer?.addView(imageView)
+        }
+
 
         return view
     }
