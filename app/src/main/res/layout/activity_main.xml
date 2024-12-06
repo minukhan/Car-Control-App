@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="40dp"
         android:layout_marginRight="16dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
@@ -51,7 +51,7 @@
             android:layout_height="30dp"
             android:layout_margin="16dp"
             android:contentDescription="Icon 2"
-            android:src="@drawable/change" />
+            android:src="@drawable/ic_change" />
 
         <ImageView
             android:id="@+id/ivIcon1"
@@ -59,7 +59,7 @@
             android:layout_height="30dp"
             android:layout_marginRight="16dp"
             android:contentDescription="Icon 1"
-            android:src="@drawable/ic_map" />
+            android:src="@drawable/ic_user" />
 
         <ImageButton
             android:id="@+id/imageButtonLogout"
