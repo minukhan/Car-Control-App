@@ -26,7 +26,7 @@ class WeatherApiService {
     suspend fun getWeatherData(): WeatherResponse {
         val serviceKey = "E+OqyHwg2ew5dYUpYUUkMCaUMyXsI37UWpgPg3q8N11kiy/zhodSqVsctbPS6oqXvdlOsXCKpr9UDcAy0YEjBg=="
         val baseDate = SimpleDateFormat("yyyyMMdd", Locale.getDefault()).format(Date())
-        val baseTime = "0800"
+        val baseTime = "1400"
 
         try {
             val response = api.getWeather(
