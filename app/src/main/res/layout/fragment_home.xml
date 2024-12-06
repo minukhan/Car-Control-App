@@ -8,14 +8,6 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <!-- 차량 정보 -->
-
-    <!-- 차량 이미지 -->
-
-    <!-- 외부 온도 및 날짜 -->
-
-    <!-- 하단 네비게이션 바 -->
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

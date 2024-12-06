@@ -18,7 +18,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 class ControlFragment : Fragment() {
     private var currentCar: Car? = null
-    private lateinit var ivCarStatus: ImageView
     private lateinit var btnLock: ImageButton
     private lateinit var btnUnlock: ImageButton
     private lateinit var btnStart: ImageButton

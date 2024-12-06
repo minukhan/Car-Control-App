@@ -1,20 +1,14 @@
 package com.autoever.hyundaicar.activities
 
 import android.content.Intent
-import android.content.pm.PackageInfo
-import android.content.pm.PackageManager
-import android.os.Build
 import android.os.Bundle
-import android.util.Base64
-import android.util.Log
+import android.view.View
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.autoever.hyundaicar.R
@@ -25,13 +19,8 @@ import com.bumptech.glide.Glide
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.firestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import java.security.MessageDigest
-import kotlinx.coroutines.launch
-import java.text.SimpleDateFormat
-import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
     private val weatherViewModel: WeatherViewModel by viewModels()
@@ -77,8 +66,8 @@ class MainActivity : AppCompatActivity() {
                     // 이미지 로드 부분 추가
                     Glide.with(ivCar.context)
                         .load(car.image)
-                        .placeholder(R.drawable.img)
-                        .error(R.drawable.img)
+                        .placeholder(R.drawable.car_image)
+                        .error(R.drawable.car_image)
                         .into(ivCar)
                 } else {
                     // 차량 정보가 없을 경우 처리
@@ -93,6 +82,17 @@ class MainActivity : AppCompatActivity() {
         val navController = navHostFragment.navController
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottom_navigation)
         bottomNavigationView.setupWithNavController(navController)
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            when (destination.id) {
+                R.id.mapFragment -> {
+                    ivCar.visibility = View.GONE  // Map 프래그먼트에서는 숨김
+                }
+                else -> {
+                    ivCar.visibility = View.VISIBLE  // 다른 프래그먼트에서는 보임
+                }
+            }
+        }
 
     }
 
