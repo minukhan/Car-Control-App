@@ -1,12 +1,16 @@
 package com.autoever.hyundaicar.fragments
 
+import android.media.Image
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -21,8 +25,9 @@ import java.text.SimpleDateFormat
 import java.util.Locale
 
 class HomeFragment : Fragment() {
-    val user = User()
     private val weatherViewModel: WeatherViewModel by viewModels()
+    private var currentCar: Car? = null
+    private var mediaPlayer: MediaPlayer? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,15 +36,37 @@ class HomeFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
-        // 뷰 참조
-        val tvModel = view.findViewById<TextView>(R.id.tvModel)
-        val tvDistance = view.findViewById<TextView>(R.id.tvDistance)
-
         fetchUserInfo()
+        setupRealtimeUpdates()
 
+        // 날씨 관련 뷰 초기화
         val tvDate: TextView = view.findViewById(R.id.tvDate)
         val tvTemperature: TextView = view.findViewById(R.id.tvTemperature)
         val skyImageView = view.findViewById<ImageView>(R.id.SkyView)
+
+        // 차량 상태 뷰 초기화
+        val btnLock: ImageButton = view.findViewById(R.id.btnLock)
+        val btnStart: ImageButton = view.findViewById(R.id.btnStart)
+        val btnUnlock: ImageButton = view.findViewById(R.id.btnUnlock)
+
+        // 버튼 동작
+        btnLock.setOnClickListener {
+            currentCar?.let { car ->
+                updateCarLockStatus(car.id, true)
+            }
+        }
+
+        btnStart.setOnClickListener {
+            currentCar?.let { car ->
+                updateCarEngineStatus(car.id, !car.isStarted)  // 현재 상태의 반대로 토글
+            }
+        }
+
+        btnUnlock.setOnClickListener {
+            currentCar?.let { car ->
+                updateCarLockStatus(car.id, false)
+            }
+        }
 
         // 날씨 데이터 가져오기
         weatherViewModel.fetchWeatherData()
@@ -130,13 +157,150 @@ class HomeFragment : Fragment() {
             }
     }
 
-    private fun updateCarInfo(car: Car) {
-        val tvModel = view?.findViewById<TextView>(R.id.tvModel)
-        val tvDistance = view?.findViewById<TextView>(R.id.tvDistance)
+    private fun updateCarLockStatus(carId: String, isLocked: Boolean) {
+        val db = FirebaseFirestore.getInstance()
+        val auth = FirebaseAuth.getInstance()
+        val currentUser = auth.currentUser?.uid ?: return
 
-        tvModel?.text = car.name
-        tvDistance?.text = "${car.distanceToEmpty} km" // 남은 주행 거리 표시
+        db.collection("users")
+            .document(currentUser)
+            .get()
+            .addOnSuccessListener { document ->
+                val user = document.toObject(User::class.java)
+                user?.let {
+                    // 해당 차량 찾기 및 상태 업데이트
+                    val updatedCars = user.cars.map { car ->
+                        if (car.id == carId) {
+                            car.copy(isLocked = isLocked)
+                        } else car
+                    }
+
+                    // Firestore 업데이트
+                    db.collection("users")
+                        .document(currentUser)
+                        .update("cars", updatedCars)
+                        .addOnSuccessListener {
+                            // 성공 메시지
+                            val message = if (isLocked) "차량이 잠겼습니다." else "차량이 잠금해제되었습니다."
+                            Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+                        }
+                        .addOnFailureListener { e ->
+                            Toast.makeText(requireContext(), "상태 업데이트 실패: ${e.message}", Toast.LENGTH_SHORT).show()
+                        }
+                }
+            }
     }
 
+    private fun updateCarEngineStatus(carId: String, isStarted: Boolean) {
+        val db = FirebaseFirestore.getInstance()
+        val auth = FirebaseAuth.getInstance()
+        val currentUser = auth.currentUser?.uid ?: return
 
+        db.collection("users")
+            .document(currentUser)
+            .get()
+            .addOnSuccessListener { document ->
+                val user = document.toObject(User::class.java)
+                user?.let {
+                    val updatedCars = user.cars.map { car ->
+                        if (car.id == carId) {
+                            car.copy(isStarted = isStarted)
+                        } else car
+                    }
+
+                    db.collection("users")
+                        .document(currentUser)
+                        .update("cars", updatedCars)
+                        .addOnSuccessListener {
+                            // 시동 상태에 따라 다른 소리 재생
+                            if (isStarted) {
+                                playSound(R.raw.engine_start)
+                            }
+                            val message = if (isStarted) "시동이 켜졌습니다." else "시동이 꺼졌습니다."
+                            Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+                        }
+                        .addOnFailureListener { e ->
+                            Toast.makeText(requireContext(), "상태 업데이트 실패: ${e.message}", Toast.LENGTH_SHORT).show()
+                        }
+                }
+            }
+    }
+
+    // 소리 재생을 위한 함수 추가
+    private fun playSound(resourceId: Int) {
+        mediaPlayer?.release()
+        mediaPlayer = MediaPlayer.create(requireContext(), resourceId).apply {
+            setOnCompletionListener { release() }
+            start()
+        }
+    }
+
+    // Fragment 파괴 시 MediaPlayer 정리
+    override fun onDestroyView() {
+        super.onDestroyView()
+        mediaPlayer?.release()
+        mediaPlayer = null
+    }
+
+    private fun updateCarInfo(car: Car) {
+        currentCar = car
+
+        val tvModel = view?.findViewById<TextView>(R.id.tvModel)
+        val tvDistance = view?.findViewById<TextView>(R.id.tvDistance)
+        val btnLock = view?.findViewById<ImageButton>(R.id.btnLock)
+        val btnStart = view?.findViewById<ImageButton>(R.id.btnStart)
+        val btnUnlock = view?.findViewById<ImageButton>(R.id.btnUnlock)
+
+        tvModel?.text = car.name
+        tvDistance?.text = "${car.distanceToEmpty} km"
+
+        // 잠금 상태에 따른 색상 변경
+        btnLock?.setColorFilter(
+            if (car.isLocked) {
+                ContextCompat.getColor(requireContext(), R.color.HyundaiBlue)
+            } else {
+                ContextCompat.getColor(requireContext(), R.color.black)
+            }
+        )
+
+        // 잠금 해제 버튼 색상 변경
+        btnUnlock?.setColorFilter(
+            if (!car.isLocked) {
+                ContextCompat.getColor(requireContext(), R.color.HyundaiBlue)
+            } else {
+                ContextCompat.getColor(requireContext(), R.color.black)
+            }
+        )
+
+        // 시동 상태에 따른 색상 변경
+        btnStart?.setColorFilter(
+            if (car.isStarted) {
+                ContextCompat.getColor(requireContext(), R.color.HyundaiBlue)
+            } else {
+                ContextCompat.getColor(requireContext(), R.color.black)
+            }
+        )
+    }
+
+    private fun setupRealtimeUpdates() {
+        val db = FirebaseFirestore.getInstance()
+        val auth = FirebaseAuth.getInstance()
+        val currentUser = auth.currentUser?.uid ?: return
+
+        db.collection("users")
+            .document(currentUser)
+            .addSnapshotListener { snapshot, e ->
+                if (e != null) {
+                    Toast.makeText(requireContext(), "실시간 업데이트 오류: ${e.message}", Toast.LENGTH_SHORT).show()
+                    return@addSnapshotListener
+                }
+
+                if (snapshot != null && snapshot.exists()) {
+                    val user = snapshot.toObject(User::class.java)
+                    if (user != null && user.cars.isNotEmpty()) {
+                        updateCarInfo(user.cars[0])
+                    }
+                }
+            }
+    }
 }
