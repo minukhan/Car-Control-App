@@ -5,9 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.autoever.hyundaicar.R
+import com.autoever.hyundaicar.models.Car
+import com.autoever.hyundaicar.models.User
 import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.CameraAnimation
 import com.naver.maps.map.CameraPosition
@@ -69,6 +75,45 @@ class MapFragment : Fragment(), com.naver.maps.map.OnMapReadyCallback {
         return view
     }
 
+    private fun fetchUserInfo(onCarInfoFetched: (String) -> Unit) {
+        val db = FirebaseFirestore.getInstance()
+        val auth = FirebaseAuth.getInstance()
+        val currentUser = auth.currentUser
+
+        if (currentUser == null) {
+            Toast.makeText(requireContext(), "사용자가 로그인되지 않았습니다.", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val userId = currentUser.uid
+        db.collection("users")
+            .document(userId)
+            .get()
+            .addOnSuccessListener { document ->
+                if (document != null) {
+                    // Firestore에서 사용자 데이터를 가져옴
+                    val user = document.toObject(User::class.java)
+                    if (user != null && user.cars.isNotEmpty()) {
+                        // 첫 번째 차량 이름 가져오기
+                        val carName = user.cars[0].name
+                        onCarInfoFetched(carName) // 콜백 호출
+                    } else {
+                        Toast.makeText(requireContext(), "등록된 차량이 없습니다.", Toast.LENGTH_SHORT).show()
+                    }
+                } else {
+                    Toast.makeText(requireContext(), "사용자 정보를 찾을 수 없습니다.", Toast.LENGTH_SHORT).show()
+                }
+            }
+            .addOnFailureListener { exception ->
+                Toast.makeText(requireContext(), "데이터를 가져오는 중 오류 발생: ${exception.message}", Toast.LENGTH_SHORT).show()
+            }
+    }
+    private fun updateCarInfo(car: Car) {
+        val tvModel = view?.findViewById<TextView>(R.id.tvModel)
+
+        tvModel?.text = car.name
+    }
+
     override fun onMapReady(naverMap: NaverMap) {
         this.naverMap = naverMap
 
@@ -81,12 +126,15 @@ class MapFragment : Fragment(), com.naver.maps.map.OnMapReadyCallback {
             isLocationButtonEnabled = true
         }
 
+        // Firestore에서 차량 정보를 가져와 마커 추가
+        fetchUserInfo { carName ->
+            // 데이터를 가져온 후 실행
+            addMarker(LatLng(37.482249, 126.879607), carName, "LG 가산디지털단지")
+        }
+
         // 초기 카메라 위치 설정
         val initialPosition = CameraPosition(LatLng(37.482249, 126.879607), 13.0)
         naverMap.cameraPosition = initialPosition
-
-        // 마커 추가
-        addMarker(LatLng(37.482249, 126.879607), "G90", "LG 가산디지털단지")
     }
 
     private var currentlyOpenInfoWindow: InfoWindow? = null // 현재 열린 InfoWindow를 추적
@@ -159,7 +207,7 @@ class MapFragment : Fragment(), com.naver.maps.map.OnMapReadyCallback {
                 val infoWindow = InfoWindow()
                 infoWindow.adapter = object : InfoWindow.DefaultTextAdapter(requireContext()) {
                     override fun getText(infoWindow: InfoWindow): CharSequence {
-                        return "${locationData.name}\n위도: ${locationData.location.latitude}, 경도: ${locationData.location.longitude}"
+                        return "${locationData.name}"
                     }
                 }
                 setOnClickListener {
