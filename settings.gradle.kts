@@ -17,7 +17,7 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral() // 카카오 SDK를 위한 Maven Central
-        maven(url = uri("https://devrepo.kakao.com/nexus/repository/kakaomap-releases/"))
+        maven("https://repository.map.naver.com/archive/maven")
     }
 }
 
