@@ -62,20 +62,17 @@ class ControlFragment : Fragment() {
         btnLock.setOnClickListener {
             car.isLocked = true
             showToast("문이 잠겼습니다.")
-            updateUI()
         }
 
         btnUnlock.setOnClickListener {
             car.isLocked = false
             showToast("문이 열렸습니다.")
-            updateUI()
         }
 
         btnStart.setOnClickListener {
             if (!car.isStarted) {
                 car.isStarted = true
                 showToast("차량 시동이 켜졌습니다.")
-                updateUI()
             } else {
                 showToast("시동이 이미 켜져 있습니다.")
             }
@@ -85,7 +82,6 @@ class ControlFragment : Fragment() {
             if (car.isStarted) {
                 car.isStarted = false
                 showToast("차량 시동이 꺼졌습니다.")
-                updateUI()
             } else {
                 showToast("시동이 이미 꺼져 있습니다.")
             }
@@ -95,7 +91,6 @@ class ControlFragment : Fragment() {
             if (!car.emergencyLight) {
                 car.emergencyLight = false
                 showToast("비상등이 켜졌습니다.")
-                updateUI()
             } else {
                 showToast("비상등이 이미 켜져 있습니다.")
             }
@@ -105,7 +100,6 @@ class ControlFragment : Fragment() {
             if (car.emergencyLight) {
                 car.emergencyLight = false
                 showToast("경적이 꺼졌습니다.")
-                updateUI()
             } else {
                 showToast("경적을 울립니다.")
             }
