@@ -92,6 +92,7 @@ class ControlActivity : AppCompatActivity() {
             } else {
                 showToast("비상등이 이미 켜져 있습니다.")
             }
+
         }
 
         btnEmergencyStop.setOnClickListener {
