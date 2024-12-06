@@ -12,13 +12,16 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.autoever.hyundaicar.R
 import com.autoever.hyundaicar.models.Car
+import com.autoever.hyundaicar.models.User
 import com.autoever.hyundaicar.viewmodel.WeatherViewModel
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Locale
 
 class HomeFragment : Fragment() {
+    val user = User()
     private val weatherViewModel: WeatherViewModel by viewModels()
 
     override fun onCreateView(
@@ -29,8 +32,11 @@ class HomeFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
         // 뷰 참조
-        val tvModel: TextView = view.findViewById(R.id.tvModel)
-        val tvDistance: TextView = view.findViewById(R.id.tvDistance)
+        val tvModel = view.findViewById<TextView>(R.id.tvModel)
+        val tvDistance = view.findViewById<TextView>(R.id.tvDistance)
+
+        fetchUserInfo()
+
         val tvDate: TextView = view.findViewById(R.id.tvDate)
         val tvTemperature: TextView = view.findViewById(R.id.tvTemperature)
         val skyImageView = view.findViewById<ImageView>(R.id.SkyView)
@@ -70,9 +76,13 @@ class HomeFragment : Fragment() {
 
                     // 요일 추출
                     val dayOfWeekFormat = SimpleDateFormat("EEEE", Locale.getDefault()) // 요일
-                    val dayOfWeek = dayOfWeekFormat.format(date)
+                    var dayOfWeek = dayOfWeekFormat.format(date)
 
-                    "${year}년 ${month}월 ${day}일 $dayOfWeek" // 날짜 + 요일
+                    if(dayOfWeek == "Friday"){
+                        dayOfWeek = "금요일"
+                    }
+
+                    "${year}년 ${month}월 ${day}일 $dayOfWeek"  // 날짜 + 요일
                 } else {
                     "Loading..."
                 }
@@ -86,18 +96,47 @@ class HomeFragment : Fragment() {
         return view
     }
 
-    // Firestore에 사용자 데이터 저장
-    private fun saveCarData(car: Car) {
-        val firestore = FirebaseFirestore.getInstance()
+    private fun fetchUserInfo() {
+        val db = FirebaseFirestore.getInstance()
+        val auth = FirebaseAuth.getInstance()
+        val currentUser = auth.currentUser
 
-        // 사용자 UID를 Firestore 문서 ID로 사용하여 저장
-        firestore.collection("cars")
-            .add(car)
-            .addOnSuccessListener {
-                Toast.makeText(requireContext(), "차량 등록 완료", Toast.LENGTH_SHORT).show()
+        if (currentUser == null) {
+            Toast.makeText(requireContext(), "사용자가 로그인되지 않았습니다.", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val userId = currentUser.uid
+        db.collection("users")
+            .document(userId)
+            .get()
+            .addOnSuccessListener { document ->
+                if (document != null) {
+                    // Firestore에서 사용자 데이터를 가져옴
+                    val user = document.toObject(User::class.java)
+                    if (user != null && user.cars.isNotEmpty()) {
+                        // 첫 번째 차량 정보 가져오기 (예: cars 리스트의 첫 번째 항목)
+                        val car = user.cars[0]
+                        updateCarInfo(car)
+                    } else {
+                        Toast.makeText(requireContext(), "등록된 차량이 없습니다.", Toast.LENGTH_SHORT).show()
+                    }
+                } else {
+                    Toast.makeText(requireContext(), "사용자 정보를 찾을 수 없습니다.", Toast.LENGTH_SHORT).show()
+                }
             }
-            .addOnFailureListener { e ->
-                Toast.makeText(requireContext(), "차량 등록 실패", Toast.LENGTH_SHORT).show()
+            .addOnFailureListener { exception ->
+                Toast.makeText(requireContext(), "데이터를 가져오는 중 오류 발생: ${exception.message}", Toast.LENGTH_SHORT).show()
             }
     }
+
+    private fun updateCarInfo(car: Car) {
+        val tvModel = view?.findViewById<TextView>(R.id.tvModel)
+        val tvDistance = view?.findViewById<TextView>(R.id.tvDistance)
+
+        tvModel?.text = car.name
+        tvDistance?.text = "${car.distanceToEmpty} km" // 남은 주행 거리 표시
+    }
+
+
 }
