@@ -48,7 +48,10 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
+        style="@style/BottomNavigationTheme"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="8dp"
+        app:itemRippleColor="@color/white"
         app:menu="@menu/bottom_navigation_menu" />
 </LinearLayout>
