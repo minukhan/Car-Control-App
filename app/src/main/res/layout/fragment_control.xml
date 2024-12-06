@@ -2,8 +2,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="16dp"
-    android:layout_marginBottom="16dp"
     android:background="@color/white"
     android:gravity="center_horizontal"
     android:orientation="vertical"
@@ -13,8 +11,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="108dp"
-        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:padding="16dp">
@@ -30,7 +28,7 @@
                 android:id="@+id/tvModel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Control"
+                android:text="G70"
                 android:textSize="34sp"
                 android:textStyle="bold" />
 
@@ -39,25 +37,26 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="G70"
+                android:text="401 km"
                 android:textSize="18sp" />
         </LinearLayout>
 
         <!-- 오른쪽 이미지 -->
         <ImageView
+            android:id="@+id/ivIcon2"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="16dp"
+            android:contentDescription="Icon 2"
+            android:src="@drawable/change" />
+
+        <ImageView
             android:id="@+id/ivIcon1"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginEnd="8dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:contentDescription="Icon 1"
             android:src="@drawable/ic_map" />
 
-        <ImageView
-            android:id="@+id/ivIcon2"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:contentDescription="Icon 2"
-            android:src="@drawable/change" />
     </LinearLayout>
 
     <ImageView
@@ -115,8 +114,8 @@
 
                     <ImageButton
                         android:id="@+id/btnLock"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
+                        android:layout_width="64dp"
+                        android:layout_height="68dp"
                         android:background="?android:attr/selectableItemBackgroundBorderless"
                         android:contentDescription="Lock Door"
                         android:scaleType="centerCrop"

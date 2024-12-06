@@ -56,13 +56,6 @@
             android:exported="false">
         </activity>
         <activity
-            android:name=".activities.StatusActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.ControlActivity"
-            android:exported="false" >
-        </activity>
-        <activity
             android:name=".activities.SignUpActivity"
             android:exported="false" />
         <activity

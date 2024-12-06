@@ -42,7 +42,7 @@ class ControlFragment : Fragment() {
         tvModel = view.findViewById(R.id.tvModel)
         tvDistance = view.findViewById(R.id.tvDistance)
 
-        val btnLock: ImageButton = view.findViewById(R.id.btnLock)
+        val btnLock: ImageButton = view.findViewById(R.id.btnUnlock)
         val btnUnlock: ImageButton = view.findViewById(R.id.btnUnlock)
         val btnStart: ImageButton = view.findViewById(R.id.btnStart)
         val btnStop: ImageButton = view.findViewById(R.id.btnStop)

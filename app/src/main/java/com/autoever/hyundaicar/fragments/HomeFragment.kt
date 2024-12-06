@@ -29,6 +29,8 @@ class HomeFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
         // 뷰 참조
+        val tvModel: TextView = view.findViewById(R.id.tvModel)
+        val tvDistance: TextView = view.findViewById(R.id.tvDistance)
         val tvDate: TextView = view.findViewById(R.id.tvDate)
         val tvTemperature: TextView = view.findViewById(R.id.tvTemperature)
         val skyImageView = view.findViewById<ImageView>(R.id.SkyView)
