@@ -47,7 +47,7 @@ class ControlFragment : Fragment() {
 
         fetchUserInfo()
 
-        val btnLock: ImageButton = view.findViewById(R.id.btnUnlock)
+        val btnLock: ImageButton = view.findViewById(R.id.btnLock)
         val btnUnlock: ImageButton = view.findViewById(R.id.btnUnlock)
         val btnStart: ImageButton = view.findViewById(R.id.btnStart)
         val btnStop: ImageButton = view.findViewById(R.id.btnStop)
@@ -116,9 +116,6 @@ class ControlFragment : Fragment() {
     private fun updateUI() {
         tvModel.text = car.name
         tvDistance.text = "남은 거리: ${car.distanceToEmpty}km"
-        ivCarStatus.setImageResource(
-            if (car.isLocked) R.drawable.car_image else R.drawable.g90
-        )
     }
 
     private fun showToast(message: String) {
