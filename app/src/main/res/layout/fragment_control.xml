@@ -5,10 +5,10 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:scrollbars="none">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="16dp"
@@ -133,9 +133,12 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
+                            android:fontFamily="@font/custom_font"
                             android:gravity="center"
                             android:text="문 잠금"
-                            android:textSize="14sp" />
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
                     </LinearLayout>
 
                     <!-- 시동 켜기 버튼 -->
@@ -152,15 +155,19 @@
                             android:layout_height="60dp"
                             android:background="?android:attr/selectableItemBackgroundBorderless"
                             android:contentDescription="Start Engine"
+                            android:scaleType="centerCrop"
                             android:src="@drawable/ic_power" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
+                            android:fontFamily="@font/custom_font"
                             android:gravity="center"
                             android:text="시동 켜기"
-                            android:textSize="14sp" />
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
                     </LinearLayout>
 
                     <!-- 문 열기 버튼 -->
@@ -184,9 +191,12 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
+                            android:fontFamily="@font/custom_font"
                             android:gravity="center"
                             android:text="문 열기"
-                            android:textSize="14sp" />
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -221,9 +231,12 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
+                            android:fontFamily="@font/custom_font"
                             android:gravity="center"
                             android:text="시동 끄기"
-                            android:textSize="14sp" />
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
                     </LinearLayout>
 
                     <!-- 비상등 버튼 -->
@@ -247,9 +260,12 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
+                            android:fontFamily="@font/custom_font"
                             android:gravity="center"
                             android:text="비상등"
-                            android:textSize="14sp" />
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
                     </LinearLayout>
 
                     <!-- 비상등/정지 버튼 -->
@@ -273,9 +289,12 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
+                            android:fontFamily="@font/custom_font"
                             android:gravity="center"
-                            android:text="비상등/정지"
-                            android:textSize="14sp" />
+                            android:text="경적"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
                     </LinearLayout>
                 </LinearLayout>
 
