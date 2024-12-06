@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:background="@color/white"
+    android:backgroundTint="@color/white"
+    android:orientation="vertical"
+    tools:context=".activities.MainActivity">
 
     <LinearLayout
-        android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_marginLeft="16dp"
@@ -17,30 +20,29 @@
         android:orientation="horizontal"
         android:padding="16dp">
 
+        <!-- 텍스트 정보 -->
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginRight="16dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:padding="16dp">
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-            <!-- 텍스트 정보 -->
-            <LinearLayout
-                android:layout_width="0dp"
+            <TextView
+                android:id="@+id/tvModel"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:text="G70"
+                android:textSize="34sp"
+                android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/tvModel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="G70"
-                    android:textSize="34sp"
-                    android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tvDistance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="401 km"
+                android:textSize="18sp" />
+        </LinearLayout>
 
         <!-- 오른쪽 이미지 -->
         <ImageView
@@ -59,48 +61,39 @@
             android:contentDescription="Icon 1"
             android:src="@drawable/ic_user" />
 
-            <ImageView
-                android:id="@+id/ivIcon1"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginRight="16dp"
-                android:contentDescription="Icon 1"
-                android:src="@drawable/ic_map" />
-
-            <ImageButton
-                android:id="@+id/imageButtonLogout"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="#00FFFFFF"
-                android:padding="2dp"
-                android:scaleType="centerCrop"
-                app:srcCompat="@drawable/ic_logout" />
-        </LinearLayout>
-
-        <ImageView
-            android:id="@+id/ivCar"
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:layout_gravity="center"
-            android:contentDescription="Car Image"
-            android:src="@drawable/car_image" />
-
-        <fragment
-            android:id="@+id/nav_host_fragment"
-            android:name="androidx.navigation.fragment.NavHostFragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            app:navGraph="@navigation/nav_graph" />
-
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottom_navigation"
-            style="@style/BottomNavigationTheme"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            app:itemRippleColor="@color/white"
-            app:menu="@menu/bottom_navigation_menu" />
+        <ImageButton
+            android:id="@+id/imageButtonLogout"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="#00FFFFFF"
+            android:padding="2dp"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/ic_logout" />
 
     </LinearLayout>
-</androidx.core.widget.NestedScrollView>
+
+    <ImageView
+        android:id="@+id/ivCar"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_gravity="center"
+        android:contentDescription="Car Image"
+        android:src="@drawable/car_image" />
+
+    <fragment
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        app:navGraph="@navigation/nav_graph" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        style="@style/BottomNavigationTheme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        app:itemRippleColor="@color/white"
+        app:menu="@menu/bottom_navigation_menu" />
+</LinearLayout>
