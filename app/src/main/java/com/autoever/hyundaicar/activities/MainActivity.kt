@@ -22,7 +22,6 @@ import com.autoever.hyundaicar.models.Car
 import com.autoever.hyundaicar.viewmodel.WeatherViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.firestore.FirebaseFirestore
-import com.kakao.vectormap.KakaoMapSdk
 import java.security.MessageDigest
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat

@@ -107,8 +107,8 @@ dependencies {
     implementation("com.github.bumptech.glide:glide:4.15.1")
     annotationProcessor("com.github.bumptech.glide:compiler:4.15.1")
 
-    // 카카오맵 api
-    implementation ("com.kakao.maps.open:android:2.12.8")
+    // 네이버 맵 api
+    implementation("com.naver.maps:map-sdk:3.19.1")
     
     implementation("com.squareup.okhttp3:okhttp:4.11.0") // OkHttp 최신 버전
     implementation("com.squareup.okhttp3:logging-interceptor:4.11.0") // HttpLoggingInterceptor
