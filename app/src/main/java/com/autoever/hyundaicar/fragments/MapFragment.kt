@@ -7,16 +7,16 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.autoever.hyundaicar.R
 import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.OnMapReadyCallback
 import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.CameraPosition
 import com.naver.maps.map.MapView
 import com.naver.maps.map.NaverMap
-import com.naver.maps.map.OnMapReadyCallback
 import com.naver.maps.map.overlay.Marker
 import com.naver.maps.map.overlay.InfoWindow
 import com.naver.maps.map.NaverMapOptions
 
-class MapFragment : Fragment(), OnMapReadyCallback {
+class MapFragment : Fragment(), com.naver.maps.map.OnMapReadyCallback {
 
     private var mapView: MapView? = null
     private var naverMap: NaverMap? = null
