@@ -11,7 +11,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:padding="16dp">
@@ -20,6 +19,7 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_margin="16dp"
             android:layout_weight="1"
             android:orientation="vertical">
 
@@ -63,7 +63,7 @@
         android:layout_width="400dp"
         android:layout_height="250dp"
         android:layout_gravity="center"
-        android:layout_marginTop="16dp"
+        android:layout_margin="8dp"
         android:contentDescription="Car Image"
         android:src="@drawable/car_image" />
 
@@ -73,6 +73,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="16dp"
         android:layout_weight="0"
         android:gravity="center"
         android:orientation="horizontal"
